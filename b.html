@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!--content type : HTML -->
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<!-- <link href="https://fonts.useso.com/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet"> -->
+	<!-- <link href="https://fonts.font.im/css?family=Noto+Sans+SC" rel="stylesheet"> -->
+	<!-- Making viewport responsive -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<!-- <link rel="stylesheet" href="style.css"> -->
+	<!-- Loading jQuery, jQuery.terminal, 
+        and style sheet -->
+	<!-- <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.32.1/js/jquery.terminal.min.js"></script>
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.32.1/css/jquery.terminal.min.css">
+	<link href="https://fonts.font.im/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet">
+	<link href="https://fonts.font.im/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+	<!-- <script src='https://cdn.jsdelivr.net/npm/jquery.terminal/js/xml_formatting.js'></script> -->
+	<link rel="stylesheet prefetch" href="https://cdn.jsdelivr.net/npm/prismjs@1.14.0/themes/prism.css" />
+	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.14.0/prism.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/prism.js"></script>
+	<script src="https://unpkg.com/jquery.terminal@1.x.x/js/less.js"></script>
+	<script src="https://unpkg.com/figlet@1.2.3/lib/figlet.js"></script>
+	<script src="ter.js"></script>
+	<script src="viewer.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+				extensions: ["tex2jax.js"],
+				jax: ["input/TeX", "output/SVG"],
+				TeX: {
+					extensions: ["mhchem.js"],
+					Macros: {
+							d: "{\\mathrm d}",
+							B: "{\\mathrm B}",
+							m: "{\\mathrm m}",
+							align: ["{\\begin{align*} #1 \\end{align*}}",1],
+							f: ["{\\frac{\\partial  #1}{\\partial  #2}}",2],
+							l: ["{\\left( #1\\right)}",1],
+							red: ["{\\color{red}{ #1}}",1],
+							green: ["{\\color{green}{ #1}}",1],
+							blue: ["{\\color{blue}{ #1}}",1]
+					}
+				},
+				tex2jax: {
+					inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+					displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+					processEscapes: true
+				},
+				 SVG: { linebreaks: { automatic: true },font: "Neo-Euler"  }
+			});
+		</script>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+</head>
+
+<body>
+	<div id="ter">
+			
+	</div>
+</body>
+
+</html>
