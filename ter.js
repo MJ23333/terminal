@@ -20,6 +20,9 @@ jQuery(document).ready(function ($) {
 		// set: function (new_path) {
 		// 	path = new_path;
 		// },
+		moments: function(){
+			window.open("https://moments.edwardkerman.com","_blank"); 
+		},
 		read: function (filename) {
 			// if(files[filename]){
 			if(filename){
