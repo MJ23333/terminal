@@ -162,15 +162,42 @@ jQuery(document).ready(function ($) {
 			});
 			// var div = $('<h1>Hello <strong>World</strong></h1>\n <div class="mathjax"> $asd$ </div>')
 		},
-		randsong: function(){
+		randmusic: function(help){
+			if(help=='-help'||help=='-h'){
+				term.echo('\n');
+				term.echo(() => render(term, 'Rand Music', "Isometric1", "black"), {
+						raw: true,
+					});
+					term.echo('\n');
+					term.echo(
+						color('green','[[b;;]Intro]: ')+ '根据本人网易云收藏随机推荐'
+					);
+			}else{
 			$.getJSON("./posts/songs.json", function(data) {
 				var entry = data[Math.round(Math.random() * data.length)];
       term.echo(
-        '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=' +
-          getQueryString(entry[2], "id") +
-          '&auto=0&height=66"></iframe>' ,{raw:true}
+        color('green','Playing ')+ color('black','[[b;;][[i;;]'+entry[1]+']]')+' by '+'[[i;;]'+entry[0]+']'
       );
+			// term.echo(() => render(term, entry[1], "Alpha", "red"), {
+			// 	raw: true,
+			// });
+			var music = document.getElementById("music");
+			// music=new Audio(url);
+			music.setAttribute('src', ' http://music.163.com/song/media/outer/url?id='+getQueryString(entry[2], "id")+'.mp3');
+			// music.load();
+			music.play().then(function() {
+				
+			}).catch(function(error) {
+				term.echo(color('red','[[b;;]SORRY]')+': We Have To Avoid [[b;;][[i;;]Copyright Infringement]]!');
+				term.echo('You can go to '+'[[@;;]'+entry[2]+'] to listen to it')
+				term.exec('randmusic',true);
+			});
+			// if(music.play()==undefined){
+			// 	term.echo(color('red','[[b;;]SORRY]')+': We Have To Avoid Copyright Infringement!');
+			// }
+		
 		});
+	}
 		},
 		typeset: function () {
 			MathJax.Hub.Typeset();
@@ -178,20 +205,44 @@ jQuery(document).ready(function ($) {
 		cls: function () {
 			term.clear();
 		},
+		sexy_media: function(){
+			$.ajax({
+				url: "./other/rick.txt" ,
+				async: false,
+				success: function (result) {
+					term.clear();
+					term.echo(() => render(term, 'Never', "Alpha", "red"), {
+						raw: true,
+					});
+					term.echo(() => render(term, 'Gonna', "Alpha", "Green"), {
+						raw: true,
+					});
+					term.echo(() => render(term, 'Give You Up', "Isometric1", "Blue"), {
+						raw: true,
+					});
+					term.echo('<pre id="rick">'+result+"</pre>", { raw: true });
+					// term.pause();
+					var music = document.getElementById("music");
+					// music=new Audio(url);
+					music.setAttribute('src', ' http://music.163.com/song/media/outer/url?id=5221167.mp3');
+					// music.load();
+					music.play();
+				},
+				error: function (jqXHR, textStatus, errorThrown) {
+					term.echo("[[b;#A00;]Error]:" + errorThrown+',Fail to Rick Roll you!');
+				},
+			});
+		},
 		logo: function () {
-			this.echo(() => bre(this, "_", "blue"), { raw: true });
+			// this.echo('<pre>/ /</pre>',{raw:true});
+			this.echo('\n');
 			this.echo(() => render(this, "Edward", "Alpha", "red"), {
 				raw: true,
 			});
 			this.echo(() => render(this, "Kerman", "Alpha", "green"), {
 				raw: true,
 			});
-			this.echo(() => bre(this, "_", "blue"), { raw: true });
-		},
-		cat: function () {
-			this.echo(() => render(this, "Catagories", "Isometric1", "blue"), {
-				raw: true,
-			});
+			this.echo('\n');
 		},
 	}
 	// var apps = ['ls','read','logo','process'];
@@ -209,12 +260,7 @@ jQuery(document).ready(function ($) {
         name: "Edward Kerman's shell",
         greetings: false,
         onInit() {
-          this.echo(() => render(this, "Edward", "Alpha", "red"), {
-            raw: true,
-          });
-          this.echo(() => render(this, "Kerman", "Alpha", "green"), {
-            raw: true,
-          });
+          this.exec("logo",true);
           this.echo(
             "Welcome to " +
               color("red", "[[b;;][[i;;]Edward Kerman]]") +
